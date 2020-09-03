@@ -1,45 +1,33 @@
 $(document).ready(function(){
+  magic8Ball = {};
 
-var magic8Ball = {};
-
-//My array of answers - a property
-magic8Ball.listOfAnswers = ["yes", "no", "maybe", "of course", "no way"];
-
-//This is a method
-magic8Ball.askQuestion = function(question) {
+    //My array of answers 
+  magic8Ball.listOfAnswers = ["yes", "no", "maybe", "of course", "no way"];
+  $("#answer").hide();
     
-  var randomNumber = Math.random();
+    //Question Function
+      magic8Ball.askQuestion = function(question) {
+        $("#answer").fadeIn(4000);
+        var randomNumber = Math.random();
+        var randomNumerForListOfAnswers = randomNumber * this.listOfAnswers.length;
+        var randomIndex = Math.floor(randomNumerForListOfAnswers);
+        var answer = this.listOfAnswers[randomIndex]; 
+	             $("#answer").text(answer);
+        console.log(question);
+	     console.log(answer);
+      };
 
-  var randomNumerForListOfAnswers = randomNumber * this.listOfAnswers.length;
-  //console.log(randomNArray);
-
-  var randomIndex = Math.floor(randomNumerForListOfAnswers);
-  //console.log(randomIndex);
-
-  var answer = this.listOfAnswers[randomIndex];
-  //console.log("The answer is: " + randomAnswer);
-  
-	$("#answer").text( answer );
-
-	console.log(question);
-	console.log(answer);
-
-};
-
-//Hides image at start of page
-$("#image").hide();
-
-//Button Section
-
+  //Button Section
 var onClick = function() {
-	var question = prompt("ASK A YES/NO QUESTION!");
+    $("#answer").hide();
+    $("#8ball").attr("src", "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/magic8ballAnswer.png");
+  
+  var question = prompt("Ask A Yes/No Question.");
 	magic8Ball.askQuestion(question);
-
+    $("#8ball").effect("shake");
 };
 
-
-$("#questionButton").click( onClick {
-	$("#image").hide();
-});
-
+    $("#questionButton").click(onClick);
+    $("#8ball").attr("src", "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/magic8ballQuestion.png");;
+  
 });	
