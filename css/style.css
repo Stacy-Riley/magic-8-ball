@@ -5,11 +5,11 @@ body {
   padding: 0px;
   background-color: #f8f8f8;
 }
+
 .page {
   width: 80%;
   max-width: 960px;
   margin: 0 auto;
-  /*background-color: pink;*/
 }
 
 .header-container {
@@ -21,6 +21,7 @@ header {
   padding-top: 0.25em;
   text-align: center;
 }
+
 header span {
   font-size: 60px;
   color: #f16059;
